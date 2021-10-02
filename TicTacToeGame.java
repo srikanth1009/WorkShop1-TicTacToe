@@ -79,7 +79,8 @@ public class TicTacToeGame {
         } else {
             System.out.println("\nSpace is not Empty.....plz try in another...\n");
            }
-        }  
+        } 
+        switchPlayer(1);
     }
 
     /**
@@ -98,6 +99,7 @@ public class TicTacToeGame {
             System.out.println("\nSpace is not Empty.....plz try in another...\n");
         }
     }
+        switchPlayer(0);
 }
     
     /**
@@ -108,9 +110,37 @@ public class TicTacToeGame {
     public static boolean isEmptyCell(int cellIndex) {
         return gameBoard[cellIndex] == ' ';
     }
+    /**
+     * method of switch player for playing
+     */
+    public void switchPlayer(int switchPlayer) {
+        if (switchPlayer == 0) {
+            playerPlaying();
+        } else if (switchPlayer == 1) {
+            computerPlaying();
+        } else {
+            System.out.println("\nGame finished.......");
+            System.exit(0);
+        }
+    }
+
+    /**
+     * method of toss for playing who play first
+     */
+    public void tossToPlay() {
+        System.out.println("\nToss .......let's decide who play first......\nCoin flip......\nCoin flip.....\nCoin flip.....\nCoin flip......\n");
+        int switchPlayer = random.nextInt(2);
+        if (switchPlayer == 0) {
+            System.out.println("Player Has Won The Toss ....and Play first");
+            switchPlayer(0);
+        } else {
+            System.out.println("Computer Has Won The Toss ....and Play first");
+            switchPlayer(1);
+        }
+    }
 
 	/**
-	 *
+	 *This is main method where all method are calling 
 	 * @param args
 	 */
 	public static void main(String[] args) {
@@ -122,8 +152,7 @@ public class TicTacToeGame {
 		ticTacToeGame.createGameBoard();
 		ticTacToeGame.selectLetter();
 		ticTacToeGame.showBoard();
-		ticTacToeGame.playerPlaying();
-        ticTacToeGame.computerPlaying();
+        ticTacToeGame.tossToPlay();
 	}
 }
 
