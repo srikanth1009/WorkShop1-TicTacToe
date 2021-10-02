@@ -9,6 +9,7 @@ public class TicTacToeGame {
 	public static char Computerletter;
     public static char Playerletter;
     static Scanner scanner = new Scanner(System.in);
+    static Random random = new Random();
 
 
 	/**
@@ -61,7 +62,27 @@ public class TicTacToeGame {
                 + "  ");
 
     }
+    /**
+     * method for user move on desired location
+     */
+    public void playerPlaying() {
+        System.out.println("\n>>>>>>>> Player Turn <<<<<<<<");
+        showBoard();
+        System.out.print("Enter your position [1-9] -> ");
+        int playerPosition = scanner.nextInt();
+        gameBoard[playerPosition] = Playerletter;
+        showBoard();
+    }
 
+    /**
+     * method for user move on desired location
+     */
+    public void computerPlaying() {
+        System.out.println("\n>>>>>>>> Computer Turn <<<<<<<<\n");
+        int computerPosition = random.nextInt(9) + 1;
+        gameBoard[computerPosition] = Computerletter;
+        showBoard();
+    }
 	/**
 	 *
 	 * @param args
@@ -75,6 +96,8 @@ public class TicTacToeGame {
 		ticTacToeGame.createGameBoard();
 		ticTacToeGame.selectLetter();
 		ticTacToeGame.showBoard();
+		ticTacToeGame.playerPlaying();
+        ticTacToeGame.computerPlaying();
 	}
 }
 
