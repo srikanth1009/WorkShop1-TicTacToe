@@ -44,6 +44,23 @@ public class TicTacToeGame {
             }
         }
     }
+    /**
+     * method for display Board
+     */
+    public void showBoard() {
+        System.out.println("  " + gameBoard[1] + " | "
+                + gameBoard[2] + " | " + gameBoard[3]
+                + "  ");
+        System.out.println("----|---|----");
+        System.out.println("  " + gameBoard[4] + " | "
+                + gameBoard[5] + " | " + gameBoard[6]
+                + "  ");
+        System.out.println("----|---|----");
+        System.out.println("  " + gameBoard[7] + " | "
+                + gameBoard[8] + " | " + gameBoard[9]
+                + "  ");
+
+    }
 
 	/**
 	 *
@@ -57,6 +74,7 @@ public class TicTacToeGame {
 
 		ticTacToeGame.createGameBoard();
 		ticTacToeGame.selectLetter();
+		ticTacToeGame.showBoard();
 	}
 }
 
